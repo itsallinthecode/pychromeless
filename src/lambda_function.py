@@ -11,7 +11,7 @@ def lambda_handler(*args, **kwargs):
 
     driver.set_input_value('//input[@name="q"]', '21 buttons')
 
-    button = driver.find("//input[@name='btnK']")
+    button = driver.find("(//input[@name='btnK'])[2]")
     button.send_keys(Keys.TAB)
     driver.click('//input[@name="btnK"]')
 
