@@ -79,3 +79,14 @@ Everything is summarized into a simple Makefile so use:
 * Jairo Vadillo ([@jairovadillo](https://github.com/jairovadillo))
 * Pere Giro ()
 * Ricard Falcó ([@ricardfp](https://github.com/ricardfp))
+
+
+## UPDATE NOTES
+
+* Need to compile in Linux, in Windows got file permission errors in Lambda
+* On Lambda, run Python as 3.6, 3.8 throws error about `WebDriverException: Message: Service chromedriver unexpectedly exited. Status code was: 127`
+* Set memory to 256mb+
+* Set timeout to 1 minute+
+* Build.zip should be uploaded to S3 bucket as it is over 50mb.
+
+Thanks to https://github.com/adieuadieu/serverless-chrome/issues/246
