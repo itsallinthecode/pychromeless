@@ -44,3 +44,7 @@ def lambda_handler(*args, **kwargs):
     # print("--------------------------")
 
     driver.close()
+
+    return {
+        'message' : f"Code: {voucher_code}, Description: {voucher_desc}"
+    }
