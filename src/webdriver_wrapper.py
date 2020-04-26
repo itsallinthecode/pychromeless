@@ -60,6 +60,8 @@ class WebDriverWrapper:
         print(chrome_options._arguments)
         print("Binary Location:", chrome_options.binary_location)
 
+        print(os.listdir(self._tmp_folder))
+
         self._driver = webdriver.Chrome(chrome_options=chrome_options)
 
         if self.download_location:
