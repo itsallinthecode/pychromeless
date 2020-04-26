@@ -10,7 +10,6 @@ class WebDriverWrapper:
         chrome_options = webdriver.ChromeOptions()
         self._tmp_folder = '/tmp/{}'.format(uuid.uuid4())
         self.download_location = download_location
-
         if not os.path.exists(self._tmp_folder):
             os.makedirs(self._tmp_folder)
 
@@ -33,6 +32,11 @@ class WebDriverWrapper:
 
             chrome_options.add_experimental_option('prefs', prefs)
 
+        print("Tmp folder:", self._tmp_folder)
+        print("User data folder:", self._tmp_folder + '/user-data')
+        print("Data path folder:", self._tmp_folder + '/data-path')
+        print("Cache folder:", self._tmp_folder + '/cache-dir')
+
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-gpu')
@@ -51,6 +55,10 @@ class WebDriverWrapper:
             'user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36')
 
         chrome_options.binary_location = os.getcwd() + "/bin/headless-chromium"
+        
+        print("Options:")
+        print(chrome_options._arguments)
+        print("Binary Location:", chrome_options.binary_location)
 
         self._driver = webdriver.Chrome(chrome_options=chrome_options)
 
